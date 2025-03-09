@@ -48,3 +48,14 @@ jobs:
           if [ -f package.json ]; then npm install; fi
 
 
+  deploy:
+    name: Deploy & Push to Docker Hub
+    needs: [backend_flask, frontend_react]
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+
+        # Optional: List repository files to verify the docker-compose file exists
+        - name: List repository files
+          run: ls -al
+
