@@ -43,7 +43,7 @@ jobs:
 
       # Install Node dependencies (assuming frontend app is in the "frontend" directory)
       - name: Install Node dependencies
-        working-directory: ./frontend
+        working-directory: ./frontend_react
         run: |
           if [ -f package.json ]; then npm install; fi
 
