@@ -61,7 +61,7 @@ instance/
 
 # dependencies
 /node_modules
-client/node_modules
+frontend_react/node_modules
 /.pnp
 .pnp.js
 
