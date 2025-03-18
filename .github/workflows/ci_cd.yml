@@ -33,22 +33,15 @@ jobs:
       - name: Lint Python code
         working-directory: ./backend_flask
         run: |
-          if [ -f .flake8 ] || [ -f setup.cfg ] || [ -f tox.ini ] || [ -f .pep8 ]; then
-            flake8 .
-          else
-            echo "No lint configuration found, skipping linting."
-          fi
+          flake8 .
+          
 
       # Step 4: Run Python tests
       ####
       - name: Run Python tests
         working-directory: ./backend_flask
         run: |
-          if [ -f pytest.ini ] || ls tests; then
-            pytest
-          else
-            echo "No tests found, skipping tests."
-          fi
+          pytest
 
 
   frontend_react:
