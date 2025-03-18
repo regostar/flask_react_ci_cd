@@ -27,6 +27,15 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
 
+      # Step 3: Lint Python code
+      #### 
+
+
+      # Step 4: Run Python tests
+      ####
+
+
+
 
   frontend_react:
     name: Frontend (React)
@@ -48,14 +57,40 @@ jobs:
           if [ -f package.json ]; then npm install; fi
 
 
+
   deploy:
     name: Deploy & Push to Docker Hub
     needs: [backend_flask, frontend_react]
     runs-on: ubuntu-latest
+    # Important step - add your environment name
+    # environment: PROD
     steps:
         - uses: actions/checkout@v3
 
         # Optional: List repository files to verify the docker-compose file exists
         - name: List repository files
           run: ls -al
+
+    # Step 7: Build docker image 
+    # Go to dockerhub.com
+    # Create a new repository - backend_flask
+    # Create a new access token - <access_token>
+    # Note down your username - <username>
+    # Add the following secrets to your GitHub repository - Environment (name = TEST)
+    # add the Environment name to the deploy job above (important step)
+    # https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
+    #### 
+
+    
+
+    # Step 8: # Log in to Docker Hub
+    #### 
+
+
+
+
+    # Step 8: Push docker image to dockerhub
+    ####
+
+
 
